@@ -1,1 +1,1 @@
-rootProject.name = "intellij-module-source-join-plugin"
+rootProject.name = "Module-Source-Join"

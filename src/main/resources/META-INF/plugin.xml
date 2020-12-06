@@ -1,19 +1,22 @@
 <idea-plugin>
-    <id>com.github.0xneffarion.intellijmodulesourcejoinplugin</id>
-    <name>intellij-module-source-join-plugin</name>
+    <id>com.github.xneffarion.intellijmodulesourcejoinplugin</id>
+    <name>Module-Source-Join</name>
     <vendor>0xneffarion</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.0xneffarion.intellijmodulesourcejoinplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.0xneffarion.intellijmodulesourcejoinplugin.services.MyProjectService"/>
-    </extensions>
+    <extensions defaultExtensionNs="com.intellij"/>
 
-    <applicationListeners>
-        <listener class="com.github.0xneffarion.intellijmodulesourcejoinplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <applicationListeners/>
+
+    <actions>
+        <action id="com.github.xneffarion.intellijmodulesourcejoinplugin.services.JoinModuleSourcesAction"
+                class="com.github.xneffarion.intellijmodulesourcejoinplugin.services.JoinModuleSourcesAction" text="Join Module Sources"
+                description="Join sources from all modules">
+            <override-text place="ToolsMenu" text="Join Action"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
