@@ -6,7 +6,7 @@
     <description>Joins all modules source code into a single folder within the project workspace</description>
 
     <change-notes>Plugin.xml info update</change-notes>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 
     <depends>com.intellij.modules.platform</depends>
 
