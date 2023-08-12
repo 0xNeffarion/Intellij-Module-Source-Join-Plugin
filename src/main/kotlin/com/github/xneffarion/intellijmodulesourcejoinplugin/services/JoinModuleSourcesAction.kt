@@ -27,15 +27,15 @@ class JoinModuleSourcesAction : AnAction() {
         ApplicationManager.getApplication().runWriteAction {
 
             var joinedDir = baseDir.findChild("joined");
-            if (joinedDir?.exists()!!){
+            if (joinedDir != null){
                 Files.walk(joinedDir.toNioPath())
                         .sorted(Comparator.reverseOrder())
                         .forEach { path ->
                             Files.delete(path)
                         }
-            }else{
-                joinedDir = baseDir.findOrCreateDirectory("joined");
             }
+
+            joinedDir = baseDir.findOrCreateDirectory("joined");
 
             for (module in ModuleManager.getInstance(project).modules) {
                 val moduleDir = module.guessModuleDir()!!
